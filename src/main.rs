@@ -56,6 +56,6 @@ async fn main() -> Result<()> {
 
 }
 
-fn with_db(db: DB) -> imp Filter<Extract = (DB,), Error = Infallible> +clone {
-    warp::any().map(move || db.clone())
+fn with_db(db: DB) -> impl Filter<Extract = (DB,), Error = Infallible> +clone {
+    warp::any().map(move || db.clone());
 }
